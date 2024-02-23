@@ -1,6 +1,6 @@
-#!/usr/bin/pup
-#Docs 
-package {'flask':
-  ensure   => '2.1.0',
-  provider => 'pip3'
+# Kills the killmenow process.
+
+exec { 'killmenow':
+  command => 'pkill killmenow',
+  path    => '/usr/local/bin/:/usr/bin:/bin/',
 }
