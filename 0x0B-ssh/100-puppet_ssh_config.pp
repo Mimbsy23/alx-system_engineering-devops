@@ -2,7 +2,9 @@
 # This script make changes to our configuration file.
 file {'/home/root/.ssh/config':
 	ensure => present,
-	mode => '0600',
+	user => 'root',
+	group => 'root',
+	mode => '0600'
 	content => '
 	Host *
 	    PasswordAuthentication no
