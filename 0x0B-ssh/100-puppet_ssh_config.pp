@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 # This script make changes to our configuration file.
-file {'/home/root/.ssh/config':
-	ensure => present,
-	user => 'root',
-	group => 'root',
-	mode => '0600'
-	content => '
-	Host *
-	    PasswordAuthentication no
-	    IdentityFile ~/.ssh/school',
+file_line { 'Turn off passwd auth':
+  path  => '/etc/ssh/sshd_config',
+  line  => 'PasswordAuthentication no',
+}
+
+file_line { 'Declare identity file':
+  path  => '/home/root/.ssh/config',
+  line  => 'IdentityFile ~/.ssh/school',
 }
