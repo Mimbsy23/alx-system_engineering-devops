@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script validate the user passed as argument
+if [[ "$#" -eq 1 ]]
+then
+    username=$1
+    if id "$username" &>/dev/null
+    then
+        sudo -u "$username" whoami
+    fi
+fi
